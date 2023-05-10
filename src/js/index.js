@@ -57,7 +57,7 @@ function createMarkupForMany(el) {
     <li data-name="${el.name.common}" class="list">
         <img 
         src=${el.flags.svg} 
-        alt=${el.flags.alt}
+        alt="${el.flags.alt}"
         width=50px 
         height=25px
         version="1.1"
@@ -74,7 +74,7 @@ function createMarkupForOne(el) {
     <li class="list">
         <img 
         src=${el.flags.svg} 
-        alt=${el.flags.alt}
+        alt="${el.flags.alt}"
         width=50px 
         height=25px
         version="1.1"

@@ -4,7 +4,6 @@
   "description": "",
   "homepage": "https://github.com/OleksiiVTS/goit-js-hw-10",
   "scripts": {
-    
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
   },
@@ -19,7 +18,9 @@
     "url": "https://github.com/OleksiiVTS/goit-js-hw-10/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "lodash.debounce": "^4.0.8",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

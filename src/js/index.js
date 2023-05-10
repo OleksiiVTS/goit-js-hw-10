@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 var debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
-
+let canClick = false;
 const inputScan = document.getElementById("search-box");
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
@@ -52,6 +52,7 @@ function valueValid(inputValue) {
 };
 
 function createMarkupForMany(el) {
+    canClick = true;
     return `
     <li data-name="${el.name.common}" class="list">
         <img 
@@ -67,6 +68,7 @@ function createMarkupForMany(el) {
 };
 
 function createMarkupForOne(el) {
+    canClick = false;
     const languages = Object.values(el.languages).join(", "); 
     return `
     <li class="list">
@@ -98,14 +100,14 @@ function sendToHTML(data) {
     if (data) {
         countryList.innerHTML = data
         countryList.addEventListener("click", selectCountries);
-        
     } 
 };
 
 function selectCountries(event) {
-    if (event.target.tagName === "IMG" || "P") {
-        const click = event.target.parentElement.dataset.name
-        valueValid(click)
+    if (canClick === false) return;
+    if (event.target.tagName === "IMG" || event.target.tagName === "P") {
+        const click = event.target.parentElement.dataset.name;
+        valueValid(click);
     }
     // console.dir(event.target);
 };

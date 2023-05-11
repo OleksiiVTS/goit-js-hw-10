@@ -34,6 +34,7 @@ function valueValid(inputValue) {
         .then((resalt) => {
             if (resalt.length > 10) {
                 Notify.info("Too many matches found. Please enter a more specific name.")
+                valueNotValid()
                 return
             }
             else if(resalt.length === 1) {
